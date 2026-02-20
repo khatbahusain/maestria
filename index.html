@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestria Innovation | Expertise IA & Data</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: bold;
+        }
+
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Maestria Innovation</h1>
+    <p>Propulser vos projets vers de nouveaux horizons grâce à l'IA</p>
+</header>
+
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="accueil">
+    <h2>L'IA au service de votre croissance</h2>
+    <p>Nous accompagnons les entreprises et institutions dans l'intégration de solutions d'intelligence artificielle sur mesure.</p>
+</section>
+
+<div class="container">
+    <section id="services">
+        <center><h2>Nos Services</h2></center>
+        <div class="services">
+            <div class="card">
+                <h3>Callbots IA</h3>
+                <p>Déploiement de solutions conversationnelles avancées pour fluidifier la relation client et automatiser les premiers niveaux de réponse.</p>
+            </div>
+            <div class="card">
+                <h3>Analyse de Données</h3>
+                <p>Extraction de valeur à partir de vos données textuelles et structurées pour une prise de décision éclairée.</p>
+            </div>
+            <div class="card">
+                <h3>Intégration LLM</h3>
+                <p>Mise en place de modèles de langage (GPT-OSS, Claude, etc.) adaptés à votre infrastructure et à vos besoins spécifiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" style="margin-top: 4rem;">
+        <center><h2>Notre Expertise</h2></center>
+        <p>Spécialiste du secteur du logement social et des problématiques d'emploi (Région Bretagne), Maestria Innovation combine rigueur scientifique et agilité technologique.</p>
+        <ul>
+            <li>Référentiels de compétences dynamiques</li>
+            <li>Pipeline ETL & Intelligence Artificielle</li>
+            <li>Conformité RGPD et Éthique de l'IA</li>
+        </ul>
+    </section>
+</div>
+
+<footer id="contact">
+    <p>&copy; 2026 Maestria Innovation. Tous droits réservés.</p>
+    <p>Contactez Husain pour en savoir plus.</p>
+</footer>
+
+</body>
+</html>
