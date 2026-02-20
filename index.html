@@ -3,149 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maestria Innovation | Expertise IA & Data</title>
+    <title>Maestria Innovation | Intelligence Artificielle & Stratégie Data</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text: #334155;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #f43f5e;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            z-index: -1;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(150px);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Header & Nav */
         header {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--primary);
         }
 
         nav {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--dark);
-            font-weight: bold;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            opacity: 0.8;
         }
 
+        nav a:hover {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 4rem 1rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
             padding: 0 1rem;
+            position: relative;
         }
 
-        .services {
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 99px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-dark);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Grid & Cards */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3.5rem;
         }
 
         .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(30, 41, 59, 0.8);
         }
 
-        h2 {
+        .card i {
+            font-size: 2.5rem;
             color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            display: inline-block;
+            margin-bottom: 1.5rem;
         }
 
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Expertise Section */
+        .expertise-split {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .expertise-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .expertise-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .expertise-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
+            padding: 6rem 2rem;
+            background: #080d1a;
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
+<div class="bg-glow">
+    <div class="blob" style="top: 10%; left: 10%;"></div>
+    <div class="blob" style="bottom: 10%; right: 10%; background: var(--accent);"></div>
+</div>
+
 <header>
-    <h1>Maestria Innovation</h1>
-    <p>Propulser vos projets vers de nouveaux horizons grâce à l'IA</p>
+    <div class="logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>MAESTRIA</span>
+    </div>
+    <nav>
+        <a href="#solutions">Solutions</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#about">À propos</a>
+        <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Contact</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#services">Services</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="accueil">
-    <h2>L'IA au service de votre croissance</h2>
-    <p>Nous accompagnons les entreprises et institutions dans l'intégration de solutions d'intelligence artificielle sur mesure.</p>
+<section class="hero">
+    <h1>L'excellence <span class="gradient-text">Algorithmique</span> au service de l'Humain.</h1>
+    <p>Nous concevons des systèmes d'Intelligence Artificielle de pointe pour transformer vos défis métier en opportunités stratégiques.</p>
+    <a href="#solutions" class="btn btn-primary">Découvrir nos solutions</a>
 </section>
 
-<div class="container">
-    <section id="services">
-        <center><h2>Nos Services</h2></center>
-        <div class="services">
-            <div class="card">
-                <h3>Callbots IA</h3>
-                <p>Déploiement de solutions conversationnelles avancées pour fluidifier la relation client et automatiser les premiers niveaux de réponse.</p>
-            </div>
-            <div class="card">
-                <h3>Analyse de Données</h3>
-                <p>Extraction de valeur à partir de vos données textuelles et structurées pour une prise de décision éclairée.</p>
-            </div>
-            <div class="card">
-                <h3>Intégration LLM</h3>
-                <p>Mise en place de modèles de langage (GPT-OSS, Claude, etc.) adaptés à votre infrastructure et à vos besoins spécifiques.</p>
+<div class="container" id="solutions">
+    <span class="section-tag">Nos Solutions</span>
+    <h2 style="font-size: 3rem; margin-bottom: 1rem;">Innover par <span class="gradient-text">l'IA</span></h2>
+    <p style="color: var(--text-muted); max-width: 600px;">Des briques technologiques modulaires, pensées pour la performance et la sécurité.</p>
+    
+    <div class="grid">
+        <div class="card">
+            <i class="fa-solid fa-robot"></i>
+            <h3>Callbots Next-Gen</h3>
+            <p>IA conversationnelle multilingue capable de gérer des flux complexes en langage naturel pour le logement social et les services publics.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Intelligence Sémantique</h3>
+            <p>Analyse automatique de documents et extraction de compétences (NLP) pour piloter vos stratégies RH et territoriales.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>Hybrid LLM Strategy</h3>
+            <p>Intégration optimisée de modèles Open-Weight (Llama, GPT-OSS) pour une souveraineté totale sur vos données.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="expertise">
+    <div class="expertise-split">
+        <div class="expertise-content">
+            <span class="section-tag">Expertise</span>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Une approche <span class="gradient-text">Scientifique</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Plus qu'une simple intégration, nous développons des algorithmes propriétaires pour répondre aux exigences spécifiques de nos partenaires publics et privés.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i>
+                    <span>Optimisation de pipelines ETL Data-IA</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i>
+                    <span>Analyse prédictive de marchés de l'emploi</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i>
+                    <span>Gouvernance IA et Conformité RGPD</span>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section id="expertise" style="margin-top: 4rem;">
-        <center><h2>Notre Expertise</h2></center>
-        <p>Spécialiste du secteur du logement social et des problématiques d'emploi (Région Bretagne), Maestria Innovation combine rigueur scientifique et agilité technologique.</p>
-        <ul>
-            <li>Référentiels de compétences dynamiques</li>
-            <li>Pipeline ETL & Intelligence Artificielle</li>
-            <li>Conformité RGPD et Éthique de l'IA</li>
-        </ul>
-    </section>
+        <div class="expertise-image">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="IA Visualisation">
+        </div>
+    </div>
 </div>
 
 <footer id="contact">
-    <p>&copy; 2026 Maestria Innovation. Tous droits réservés.</p>
-    <p>Contactez Husain pour en savoir plus.</p>
+    <div class="logo footer-logo" style="justify-content: center;">
+        <i class="fa-solid fa-microchip"></i>
+        <span>MAESTRIA</span>
+    </div>
+    <div class="social-links">
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <p class="copyright">&copy; 2026 Maestria Innovation. Conçu par Husain.</p>
 </footer>
 
 </body>
